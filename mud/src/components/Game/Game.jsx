@@ -1,5 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
+import NavBarLogout from '../Nav/NavBarLogout'
+import Player from './Player'
 // import userContext from '';
 
 
@@ -7,21 +9,31 @@ import Controls from './Controls';
 import Display from './Display';
 
 const Game = props => {
-    useEffect(() => {
-        effect;
-        return () => {
-            cleanup;
-        };
-    }, [input]);
-
     return (
         <>
-            <h2>Game</h2>
-            <Controls />
-            <Display />
+        <NavBarLogout {...props} />
+        <h1>Game</h1>
+        <Player {...props}/>
         </>
-    );
-};
+    )
+}
+
+// const Game = props => {
+//     useEffect(() => {
+//         effect;
+//         return () => {
+//             cleanup;
+//         };
+//     }, [input]);
+
+//     return (
+//         <>
+//             <h2>Game</h2>
+//             <Controls />
+//             <Display />
+//         </>
+//     );
+// };
 
 export default Game;
 
