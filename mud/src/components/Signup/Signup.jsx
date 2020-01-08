@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Form } from 'semantic-ui-react'
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import UserContext from '../../contexts/UserContext';
+import axios from 'axios';
 
 
 
@@ -78,8 +79,8 @@ const FormikLoginForm = withFormik({
 	handleSubmit (values, { props, setStatus, handleSubmit: e}) {
         // e.preventDefault()
         
-        axiosWithAuth()
         
+        axios
 			.post('https://lambda-mud-test.herokuapp.com/api/registration/', values)
 			.then((res) => {
                 console.log(res.data)
