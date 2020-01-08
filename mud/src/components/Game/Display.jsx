@@ -1,7 +1,7 @@
 import React from 'react';
 import Room from './Room';
 
-const Display = () => {
+const Display = ({ rooms }) => {
     const world = [
         {
             id: 1,
@@ -126,20 +126,20 @@ const Display = () => {
         }
 
         rooms.forEach(room => {
-            let roomType = '';
-            if (room.s_to !== null && room.e_to !== null)
-                roomType = 'roomWithBoth';
-            if (room.s_to !== null && room.e_to === null)
-                roomType = 'roomWithSouth';
+            let roomType = null;
+            if (room.s_to !== null && room.e_to !== null) roomType = room;
+            if (room.s_to !== null && room.e_to === null) roomType = room;
+            if (room.s_to === null && room.e_to !== null) roomType = room;
+
             grid[room.pos_y][room.pos_x] = roomType;
         });
         return grid;
     };
-    console.log(roomMap(5));
-
+    console.log('roomMap', roomMap(rooms, 10));
+    console.log('****', rooms);
     return (
         <div className='gameboard'>
-            {/* {world.map(room => {
+            {rooms.map(room => {
                 // if (room.s_to !== null) {
                 //     return (
                 //         <>
@@ -149,9 +149,9 @@ const Display = () => {
                 //     );
                 // }
                 // return <div className='room'></div>;
-                
-                <Room roomType={room}
-            })} */}
+
+                return <Room room={room} />;
+            })}
         </div>
     );
 };

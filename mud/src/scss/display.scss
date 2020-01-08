@@ -1,15 +1,21 @@
 .gameboard {
-    width: 500px;
+    width: 100vw;
+    height: 800px;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid red;
+    margin: 0 auto;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 .room {
-    width: 20%;
-    height: 100px;
+    width: 10%;
     background: pink;
-    margin: 10px;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
 }
 
 .south-door {
