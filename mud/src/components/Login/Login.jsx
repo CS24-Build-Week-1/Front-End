@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Form } from 'semantic-ui-react'
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import UserContext from '../../contexts/UserContext';
+import axios from 'axios'
 
 
 
@@ -21,7 +22,7 @@ const Login = (props) => {
     
 	return (
         <>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="login-panel">
         <div className="login-title">
         <h1>Login</h1>
@@ -29,8 +30,8 @@ const Login = (props) => {
 			<FormikForm use="semantic-ui-react">
                 <div>
                 <Form.Field>
-				<Field className="login-input one" type="email" name="email" data-testid="email" placeholder="Email" />
-                {touched.email && errors.email && <p className="error">{errors.email}</p>}
+				<Field className="login-input one" type="username" name="username" data-testid="username" placeholder="Username" />
+                {touched.username && errors.username && <p className="error">{errors.username}</p>}
                 </Form.Field>
                 </div>
                 <div>
@@ -48,36 +49,35 @@ const Login = (props) => {
             
 	
         </div>
-        <Footer />
+        {/* <Footer /> */}
         </>
 	);
 };
 
 const FormikLoginForm = withFormik({
-	mapPropsToValues ({ email, password }) {
+	mapPropsToValues ({ username, password }) {
 		return {
-			email     : email || '',
+			username     : username || '',
 			password : password || ''
 		};
 	},
 
 	validationSchema : Yup.object().shape({
-		email     : Yup.string().required('Please enter your email'),
+		username     : Yup.string().required('Please enter your username'),
 		password : Yup.string().required('Please enter your password'),		
 	}),
 
 	handleSubmit (values, { props, setStatus, handleSubmit: e}) {
         // e.preventDefault()
         
-        axiosWithAuth()
-        
-			.post('https://replatedb.herokuapp.com/auth/login', values)
+        axios
+			.post('https://lambda-mud-test.herokuapp.com/api/login', values)
 			.then((res) => {
                 console.log(res.data)
                 localStorage.setItem('token', res.data.token);
                 setStatus(res.data)
                 const id = res.data.id
-                props.history.push(`/game`)
+                props.history.push(`/games`)
 			})
 			.catch((err) => console.log(err.response));
     },
