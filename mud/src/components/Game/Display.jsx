@@ -126,20 +126,21 @@ const Display = ({ rooms }) => {
         }
 
         rooms.forEach(room => {
-            let roomType = null;
-            if (room.s_to !== null && room.e_to !== null) roomType = room;
-            if (room.s_to !== null && room.e_to === null) roomType = room;
-            if (room.s_to === null && room.e_to !== null) roomType = room;
+            // let roomType = null;
+            // if (room.s_to !== null && room.e_to !== null) roomType = room;
+            // if (room.s_to !== null && room.e_to === null) roomType = room;
+            // if (room.s_to === null && room.e_to !== null) roomType = room;
 
-            grid[room.pos_y][room.pos_x] = roomType;
+            grid[room.pos_y][room.pos_x] = room;
         });
-        return grid;
+        return grid.flat();
     };
-    console.log('roomMap', roomMap(rooms, 10));
+
+    console.log('roomMap', roomMap(rooms, 20));
     console.log('****', rooms);
     return (
         <div className='gameboard'>
-            {rooms.map(room => {
+            {roomMap(rooms, 20).map(room => {
                 // if (room.s_to !== null) {
                 //     return (
                 //         <>
