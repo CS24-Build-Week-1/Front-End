@@ -74,7 +74,7 @@ const FormikLoginForm = withFormik({
 			.post('https://team-miracle-deploy.herokuapp.com/api/login/', values)
 			.then((res) => {
                 console.log(res.data)
-                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('token', res.data.key);
                 setStatus(res.data)
                 const id = res.data.id
                 props.history.push(`/games`)
