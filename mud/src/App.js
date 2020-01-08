@@ -4,6 +4,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import UserContext from './contexts/UserContext';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import NavBarLogout from './components/Nav/NavBarLogout'
 
 import Game from './components/Game/Game';
 import './App.css';

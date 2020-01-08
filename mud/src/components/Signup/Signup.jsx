@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { Form } from 'semantic-ui-react'
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import UserContext from '../../contexts/UserContext';
-import axios from 'axios';
+import axios from 'axios'
 
 
 
@@ -36,12 +36,12 @@ const Signup = (props) => {
                 </div>
                 <div>
                 <Form.Field>
-				<Field className="login-input" type="password" name="password1" data-testid="password1" placeholder="Password1" />
+				<Field className="login-input" type="password" name="password1" data-testid="password1" placeholder="Password" />
 				{/* {touched.password && errors.password && <p className="error">{errors.password}</p>} */}
                 </Form.Field>
                 </div>  <div>
                 <Form.Field>
-				<Field className="login-input" type="password" name="password2" data-testid="password2" placeholder="Password2" />
+				<Field className="login-input" type="password" name="password2" data-testid="password2" placeholder="Confirm Password" />
 				{/* {touched.password && errors.password && <p className="error">{errors.password}</p>} */}
                 </Form.Field>
                 </div>
@@ -81,13 +81,13 @@ const FormikLoginForm = withFormik({
         
         
         axios
-			.post('https://lambda-mud-test.herokuapp.com/api/registration/', values)
+			.post('https://team-miracle-deploy.herokuapp.com/api/registration/', values)
 			.then((res) => {
                 console.log(res.data)
                 localStorage.setItem('token', res.data.token);
                 setStatus(res.data)
                 const id = res.data.id
-                props.history.push(`/game`)
+                props.history.push(`/games`)
 			})
 			.catch((err) => console.log(err.response));
     },
