@@ -1,0 +1,19 @@
+.gameboard {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+}
+
+.room {
+    width: 20%;
+    height: 100px;
+    background: pink;
+    margin: 10px;
+}
+
+.south-door {
+    width: 20px;
+    height: 20px;
+    background: skyblue;
+}

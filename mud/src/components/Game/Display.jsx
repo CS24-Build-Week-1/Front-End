@@ -1,7 +1,159 @@
 import React from 'react';
+import Room from './Room';
 
 const Display = () => {
-    return <div></div>;
+    const world = [
+        {
+            id: 1,
+            name: 'room1',
+            description: 'test room',
+            n_to: null,
+            s_to: 2,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 2,
+            name: 'room2',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 3,
+            name: 'room3',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 4,
+            name: 'room4',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 5,
+            name: 'room5',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 6,
+            name: 'room6',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 7,
+            name: 'room7',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 8,
+            name: 'room8',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 9,
+            name: 'room9',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 10,
+            name: 'room10',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 11,
+            name: 'room11',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null
+        },
+        {
+            id: 12,
+            name: 'room12',
+            description: 'test room',
+            n_to: null,
+            s_to: null,
+            e_to: null,
+            w_to: null,
+            x: 0,
+            y: 0
+        }
+    ];
+
+    const roomMap = (rooms, width) => {
+        let grid = [];
+        for (let i = 0; i < width; i++) {
+            let row = [];
+            for (let j = 0; j < width; j++) {
+                row.push(null);
+            }
+            grid.push(row);
+        }
+
+        rooms.forEach(room => {
+            let roomType = '';
+            if (room.s_to !== null && room.e_to !== null)
+                roomType = 'roomWithBoth';
+            if (room.s_to !== null && room.e_to === null)
+                roomType = 'roomWithSouth';
+            grid[room.pos_y][room.pos_x] = roomType;
+        });
+        return grid;
+    };
+    console.log(roomMap(5));
+
+    return (
+        <div className='gameboard'>
+            {/* {world.map(room => {
+                // if (room.s_to !== null) {
+                //     return (
+                //         <>
+                //             <div className='room'></div>
+                //             <div className='south-door'></div>
+                //         </>
+                //     );
+                // }
+                // return <div className='room'></div>;
+                
+                <Room roomType={room}
+            })} */}
+        </div>
+    );
 };
 
 export default Display;

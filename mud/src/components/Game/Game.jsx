@@ -1,9 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
-import NavBarLogout from '../Nav/NavBarLogout'
-import Player from './Player'
+import NavBarLogout from '../Nav/NavBarLogout';
+import Player from './Player';
 // import userContext from '';
-
 
 import Controls from './Controls';
 import Display from './Display';
@@ -11,12 +9,13 @@ import Display from './Display';
 const Game = props => {
     return (
         <>
-        <NavBarLogout {...props} />
-        <h1>Game</h1>
-        <Player {...props}/>
+            <NavBarLogout {...props} />
+            <h1>Game</h1>
+            <Player {...props} />
+            <Display />
         </>
-    )
-}
+    );
+};
 
 // const Game = props => {
 //     useEffect(() => {
