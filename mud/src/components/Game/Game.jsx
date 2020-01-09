@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBarLogout from '../Nav/NavBarLogout';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import Player from './Player';
+
 // import userContext from '';
 
 import Controls from './Controls';
@@ -47,7 +48,10 @@ const Game = props => {
             <NavBarLogout {...props} />
             {/* <h1>Game</h1> */}
             {/* <Player {...props} /> */}
+            <div className="display">
             <Display rooms={rooms} />
+            <Controls />
+            </div>
         </>
     );
 };
