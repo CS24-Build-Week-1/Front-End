@@ -15,7 +15,8 @@ const NavBarLogout = props => {
 	return (
 		<div className="navbar-logout">
 			<div className="nav-content">
-				<div className="nav-logo">MUD</div>
+				<div className="nav-logo"><img src={require("../../assets/sorlosheet.png")}></img></div>
+				<div className="mud-name"><h1>Mud</h1></div>
 				<div className="nav-links">
 					<NavLink onClick={handleClick} to="/" className="nav-link" activeClassName="nav-link-active">
 						Logout

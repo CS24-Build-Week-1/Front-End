@@ -31,8 +31,8 @@ const Game = props => {
     return (
         <>
             <NavBarLogout {...props} />
-            <h1>Game</h1>
-            <Player {...props} />
+            {/* <h1>Game</h1> */}
+            {/* <Player {...props} /> */}
             <Display rooms={rooms} />
         </>
     );
