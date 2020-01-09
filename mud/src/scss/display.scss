@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 .gameboard {
-    width: 75vh;
-    height: 75vh;
+    width: 65vh;
+    height: 65vh;
     display: flex;
     flex-wrap: wrap;
     border: 5px solid purple;
@@ -11,14 +11,15 @@
     justify-content: space-around;
     margin-top: 50px;
     background: white;
-    // flex-direction: column;
+ 
 }
 
 .gridsquare, .blank {
     position: relative; // needed for absolute positioning of children to work
     width: 5%;
     height: 5%;
-    // border: 1px solid black;
+    border: 1px solid black;
+
 }
 
 .room {
@@ -30,6 +31,7 @@
     background: pink;
     border: 1px solid blue;
     display: flex;
+   
 }
 
 .south-door {
@@ -39,6 +41,7 @@
     width: 25%;
     height: 25%;
     background: skyblue;
+   
 }
 
 .east-door {
@@ -48,4 +51,9 @@
     width: 25%;
     height: 25%;
     background: brown;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
 }
