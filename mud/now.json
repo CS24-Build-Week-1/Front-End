@@ -1,0 +1,15 @@
+{
+
+    "version": 2,
+
+    "name": "mud-game",
+
+    "builds": [{ "src": "mud-game/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+
+    "routes": [
+
+        { "src": "/(.*)", "dest": "mud-game/$1" }
+
+    ]
+
+}

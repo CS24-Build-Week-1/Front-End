@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Form } from 'semantic-ui-react'
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import UserContext from '../../contexts/UserContext';
+import NavBarSignup from '../Nav/NavBarSignup'
 import axios from 'axios'
 
 
@@ -22,12 +23,12 @@ const Signup = (props) => {
     
 	return (
         <>
-        {/* <NavBar /> */}
+        <NavBarSignup {...props} />
         <div className="login-panel">
         <div className="login-title">
         <h1>Signup</h1>
         </div>
-			<FormikForm use="semantic-ui-react">
+			<FormikForm use="semantic-ui-react" className="login-form">
                 <div>
                 <Form.Field>
 				<Field className="login-input one" type="username" name="username" data-testid="username" placeholder="Username" />
