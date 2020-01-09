@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBarLogout from '../Nav/NavBarLogout';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import Player from './Player';
+import RoomInfo from './RoomInfo'
 
 // import userContext from '';
 
@@ -51,6 +52,7 @@ const Game = props => {
             <div className="display">
             <Display rooms={rooms} />
             <Controls />
+            <RoomInfo info={player} />
             </div>
         </>
     );
