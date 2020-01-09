@@ -131,8 +131,11 @@ const Display = ({ rooms }) => {
             // if (room.s_to !== null && room.e_to === null) roomType = room;
             // if (room.s_to === null && room.e_to !== null) roomType = room;
 
-            // grid[room.pos_y][room.pos_x] = room;
-            grid[room.y][room.x] = room
+            try {
+                grid[room.y][room.x] = room
+            } catch {
+                grid[room.pos_y][room.pos_x] = room;
+            }
         });
         return grid.flat();
     };
