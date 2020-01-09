@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import NavBarLogout from '../Nav/NavBarLogout';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
+// import axios from 'axios';
 import Player from './Player';
+
 // import userContext from '';
 
 import Controls from './Controls';
@@ -9,7 +11,51 @@ import Display from './Display';
 
 const Game = props => {
     const [rooms, setRooms] = useState([]);
-    const [player, setPlayer] = useState({});
+    const [player, setPlayer] = useState({player_room_id: 289});
+
+    const movePlayer = direction => {
+        axiosWithAuth()
+            .post(
+                'https://team-miracle-deploy.herokuapp.com/api/adv/move',
+                { direction })
+            .then(res => {
+                console.log(res.data);
+                console.log('update player position here')
+                setPlayer({
+                    ...player,
+                    'player_room_id': res.data.player_room_id
+                });
+            })
+            .catch(err => {
+                console.log(err);
+                const current = rooms.find(room => {
+                    return room.id == player.player_room_id;
+                })
+                let newRoom;
+                switch (direction) {
+                    case 'n':
+                        newRoom = current.n_to;
+                        break;
+                    case 's':
+                        newRoom = current.s_to;
+                        break;
+                    case 'e':
+                        newRoom = current.e_to;
+                        break;
+                    case 'w':
+                        newRoom = current.w_to;
+                        break;
+                    default:
+                        console.log('NON-CARDINAL DIRECTION')
+                }
+                if (newRoom) {
+                    setPlayer({
+                        ...player,
+                        'player_room_id': newRoom
+                    });
+                }
+            });
+    }
 
     useEffect(() => {
         axiosWithAuth()
@@ -47,7 +93,10 @@ const Game = props => {
             <NavBarLogout {...props} />
             {/* <h1>Game</h1> */}
             {/* <Player {...props} /> */}
-            <Display rooms={rooms} />
+            <div className="display">
+            <Display rooms={rooms} playerRoom={player.player_room_id}/>
+            <Controls move={movePlayer} />
+            </div>
         </>
     );
 };
