@@ -2,14 +2,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBarLogout = props => {
+const NavBarSignup = props => {
 	console.log(props);
 
 	const handleClick = e => {
-		e.preventDefault();
-		window.localStorage.removeItem('token');
-		window.localStorage.removeItem('user');
-		props.history.push('/');
+        e.preventDefault();
+        props.history.push('/')	
 	};
 
 	return (
@@ -19,7 +17,7 @@ const NavBarLogout = props => {
 				<div className="mud-name"><h1>Mud</h1></div>
 				<div className="nav-links">
 					<NavLink onClick={handleClick} to="/" className="nav-link" activeClassName="nav-link-active">
-						Logout
+						Login
 					</NavLink>
 				</div>
 			</div>
@@ -27,4 +25,4 @@ const NavBarLogout = props => {
 	);
 };
 
-export default NavBarLogout;
+export default NavBarSignup;
