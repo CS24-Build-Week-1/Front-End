@@ -9,13 +9,27 @@ import Display from './Display';
 
 const Game = props => {
     const [rooms, setRooms] = useState([]);
+    const [player, setPlayer] = useState({});
 
     useEffect(() => {
         axiosWithAuth()
             .get('https://team-miracle-deploy.herokuapp.com/api/adv/rooms')
             .then(res => {
                 setRooms(res.data.rooms);
-                console.log('HERE is response from ROOMS:', res.data.rooms);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, []);
+
+    useEffect(() => {
+        console.log('second use effect')
+        axiosWithAuth()
+            .get('https://team-miracle-deploy.herokuapp.com/api/adv/init')
+            .then(res => {
+            console.log('successful response')
+                setPlayer(res.data);
+                console.log('HERE is response from INIT:', res.data);
             })
             .catch(err => {
                 console.log(err);
