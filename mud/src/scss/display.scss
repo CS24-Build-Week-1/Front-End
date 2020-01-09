@@ -2,24 +2,22 @@
     box-sizing: border-box;
 }
 .gameboard {
-    width: 65vh;
-    height: 65vh;
+    width: 100vh;
+    height: 70vh;
     display: flex;
     flex-wrap: wrap;
     border: 5px solid purple;
     margin: 0 auto;
     justify-content: space-around;
     margin-top: 50px;
-    background: white;
- 
 }
 
 .gridsquare, .blank {
     position: relative; // needed for absolute positioning of children to work
     width: 5%;
     height: 5%;
-    border: 1px solid black;
-
+    // border: 1px solid black;
+    background-color: grey;
 }
 
 .room {
@@ -28,10 +26,9 @@
     left: 0;
     width: 75%;
     height: 75%;
-    background: pink;
+    background: white;
     border: 1px solid blue;
     display: flex;
-   
 }
 
 .south-door {
@@ -41,7 +38,6 @@
     width: 25%;
     height: 25%;
     background: skyblue;
-   
 }
 
 .east-door {
@@ -56,4 +52,8 @@
 .display {
     display: flex;
     flex-direction: column;
+}
+
+.player.room {
+    background-color: green;
 }
