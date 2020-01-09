@@ -11,6 +11,18 @@ const Game = props => {
     const [rooms, setRooms] = useState([]);
     const [player, setPlayer] = useState({});
 
+    const move = direction => {
+        axiosWithAuth()
+            .post(
+                'https://team-miracle-deploy.herokuapp.com/api/adv/move',
+                { direction })
+            .then(res => {
+                console.log(res.data);
+                console.log('update player position here')
+            })
+            .catch(console.log);
+    }
+
     useEffect(() => {
         axiosWithAuth()
             .get('https://team-miracle-deploy.herokuapp.com/api/adv/rooms')
@@ -48,6 +60,7 @@ const Game = props => {
             {/* <h1>Game</h1> */}
             {/* <Player {...props} /> */}
             <Display rooms={rooms} />
+            <Controls move={move} />
         </>
     );
 };
