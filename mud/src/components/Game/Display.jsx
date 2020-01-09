@@ -151,7 +151,11 @@ const Display = ({ rooms }) => {
                 // }
                 // return <div className='room'></div>;
 
-                return <Room room={room} />;
+                if (room !== null) {
+                    return <Room room={room} />;
+                } else {
+                    return <div className="blank"></div>
+                }
             })}
         </div>
     );

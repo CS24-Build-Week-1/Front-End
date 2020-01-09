@@ -1,25 +1,49 @@
+* {
+    box-sizing: border-box;
+}
 .gameboard {
-    width: 100vw;
-    height: 800px;
+    width: 65vh;
+    height: 65vh;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid red;
     margin: 0 auto;
     justify-content: space-around;
-    flex-direction: column;
+    // flex-direction: column;
+}
+
+.gridsquare, .blank {
+    position: relative; // needed for absolute positioning of children to work
+    width: 5%;
+    height: 5%;
+    border: 1px solid black;
 }
 
 .room {
-    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 75%;
     background: pink;
     border: 1px solid blue;
     display: flex;
-    flex-direction: column;
-    align-content: space-around;
 }
 
 .south-door {
-    width: 20px;
-    height: 20px;
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    width: 25%;
+    height: 25%;
     background: skyblue;
+}
+
+.east-door {
+    position: absolute;
+    top: 25%;
+    left: 75%;
+    width: 25%;
+    height: 25%;
+    background: brown;
 }
