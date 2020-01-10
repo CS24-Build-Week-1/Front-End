@@ -4,11 +4,11 @@
 
     "name": "mud-game",
 
-    "builds": [{ "src": "mud-game/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "builds": [{ "src": "mud/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
 
     "routes": [
 
-        { "src": "/(.*)", "dest": "mud-game/$1" }
+        { "src": "/(.*)", "dest": "mud/$1" }
 
     ]
 
