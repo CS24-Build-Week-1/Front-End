@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
 }
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .gameboard {
     width: 100vh;
     height: 70vh;
