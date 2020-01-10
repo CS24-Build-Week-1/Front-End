@@ -3,6 +3,7 @@ import NavBarLogout from '../Nav/NavBarLogout';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 // import axios from 'axios';
 import Player from './Player';
+import RoomInfo from './RoomInfo'
 
 // import userContext from '';
 
@@ -99,6 +100,7 @@ const Game = props => {
             {/* <Player {...props} /> */}
             <div className='display'>
                 <Display rooms={rooms} playerRoom={playerRoom} />
+                <RoomInfo player={player} />
                 <Controls move={movePlayer} />
             </div>
         </>
