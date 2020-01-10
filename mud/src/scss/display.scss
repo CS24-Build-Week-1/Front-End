@@ -12,12 +12,18 @@
     margin-top: 50px;
 }
 
-.gridsquare, .blank {
+.gridsquare,
+.blank {
     position: relative; // needed for absolute positioning of children to work
     width: 5%;
     height: 5%;
     // border: 1px solid black;
     background-color: grey;
+}
+
+.blank {
+    background-image: url('../assets/grassbackground.jpg');
+    z-index: 0;
 }
 
 .room {
