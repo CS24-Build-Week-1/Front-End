@@ -2,14 +2,15 @@
 
     "version": 2,
 
-    "name": "mud-game",
+    "name": "Front-End",
 
-    "builds": [{ "src": "mud/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "builds": [{ "src": "Front-End/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
 
     "routes": [
 
-        { "src": "/(.*)", "dest": "mud/$1" }
+        { "src": "/(.*)", "dest": "Front-End/$1" }
 
     ]
 
 }
+
